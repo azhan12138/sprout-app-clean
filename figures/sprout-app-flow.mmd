@@ -1,0 +1,40 @@
+flowchart TD
+    app["Sprout 应用"] --> tabs["三大页面"]
+
+    tabs --> habitat["栖息地"]
+    tabs --> labor["劳作"]
+    tabs --> review["回顾"]
+
+    habitat --> habitatCards["目标植物卡片"]
+    habitat --> habitatProgress["进度条"]
+    habitat --> habitatArchive["归档 / 排序"]
+    habitat --> habitatWater["浇灌目标"]
+
+    labor --> laborMood["情绪记录"]
+    labor --> laborNote["备注输入"]
+    labor --> laborGoal["新建目标"]
+    labor --> laborTasks["今日任务"]
+
+    laborTasks --> onceTask["一次性任务"]
+    laborTasks --> dailyTask["每日任务"]
+    laborTasks --> weeklyTask["每周任务"]
+    onceTask --> reward["完成任务"]
+    dailyTask --> reward
+    weeklyTask --> reward
+
+    reward --> drops["获得水滴"]
+    drops --> habitatWater
+    habitatWater --> growth["目标成长"]
+    growth --> review
+
+    review --> reviewMood["按日期查看心情"]
+    review --> reviewTasks["完成任务记录"]
+    review --> reviewWater["浇灌记录"]
+
+    classDef core fill:#f6f2e8,stroke:#254336,stroke-width:2px,color:#254336;
+    classDef accent fill:#dde9d0,stroke:#254336,stroke-width:2px,color:#254336;
+    classDef action fill:#fcfbf7,stroke:#7fa36b,stroke-width:2px,color:#254336;
+
+    class app,tabs,habitat,labor,review core;
+    class habitatCards,habitatProgress,habitatArchive,habitatWater,laborMood,laborNote,laborGoal,laborTasks,reviewMood,reviewTasks,reviewWater accent;
+    class onceTask,dailyTask,weeklyTask,reward,drops,growth action;

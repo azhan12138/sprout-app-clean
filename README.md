@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  A gentle, visually cozy Expo app that turns daily tasks, mood check-ins, and personal goals into a growing plant habitat.
+  一个把日常任务、情绪记录和长期目标转化为植物生长体验的治愈系 Expo 应用。
 </p>
 
 <p align="center">
@@ -14,72 +14,151 @@
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white" />
 </p>
 
-## Overview
+## 项目简介
 
-Sprout is a small mobile app for gentle self-growth.
-It transforms goals into plants, completed tasks into water drops, and daily mood check-ins into a calm reflection ritual.
+Sprout 是一个围绕“温和成长”设计的小型移动应用。
 
-Instead of treating productivity as pressure, Sprout visualizes progress as something soft, slow, and alive.
+在这个应用里：
+- 目标会变成一株正在成长的植物
+- 完成任务会获得可以浇灌植物的水滴
+- 每日情绪记录会沉淀成可以回顾的成长痕迹
 
-## Features
+它不把效率当作压力，而是尝试把进步变成一种更柔和、更可视化、也更可持续的体验。
 
-- **Plant-based goal visualization** — turn long-term goals into growing plants with visible progress stages
-- **Task-to-reward loop** — complete daily tasks to earn water drops and invest them into goal growth
-- **Mood check-ins** — log how you feel today with a short note and lightweight emotional feedback
-- **Daily and weekly habits** — support both one-time tasks and recurring routines
-- **Reflection timeline** — review moods, completed tasks, and watering records by day
-- **Offline-friendly local storage** — app state is saved locally on device using Expo file storage
+## 应用截图
 
-## Experience
+> 建议将截图放入 `assets/screenshots/` 目录，下列文件名可直接使用。
 
-Sprout is designed around a calm emotional tone:
+### 栖息地
 
-- soft plant-inspired visuals
-- low-pressure progress tracking
-- small actions instead of overwhelming plans
-- a reflective, cozy mobile-first interface
+<p align="center">
+  <img src="./assets/screenshots/habitat.jpg" alt="Sprout 栖息地页面" width="260" />
+</p>
 
-## Built With
+### 劳作
+
+<p align="center">
+  <img src="./assets/screenshots/labor.jpg" alt="Sprout 劳作页面" width="260" />
+</p>
+
+### 回顾
+
+<p align="center">
+  <img src="./assets/screenshots/review.jpg" alt="Sprout 回顾页面" width="260" />
+</p>
+
+## 功能结构图
+
+下图展示了 Sprout 的三大页面结构，以及“任务 → 水滴 → 浇灌 → 成长 → 回顾”的核心业务链路。
+
+```mermaid
+flowchart TD
+    app["Sprout 应用"] --> tabs["三大页面"]
+
+    tabs --> habitat["栖息地"]
+    tabs --> labor["劳作"]
+    tabs --> review["回顾"]
+
+    habitat --> habitatCards["目标植物卡片"]
+    habitat --> habitatProgress["进度条"]
+    habitat --> habitatArchive["归档 / 排序"]
+    habitat --> habitatWater["浇灌目标"]
+
+    labor --> laborMood["情绪记录"]
+    labor --> laborNote["备注输入"]
+    labor --> laborGoal["新建目标"]
+    labor --> laborTasks["今日任务"]
+
+    laborTasks --> onceTask["一次性任务"]
+    laborTasks --> dailyTask["每日任务"]
+    laborTasks --> weeklyTask["每周任务"]
+    onceTask --> reward["完成任务"]
+    dailyTask --> reward
+    weeklyTask --> reward
+
+    reward --> drops["获得水滴"]
+    drops --> habitatWater
+    habitatWater --> growth["目标成长"]
+    growth --> review
+
+    review --> reviewMood["按日期查看心情"]
+    review --> reviewTasks["完成任务记录"]
+    review --> reviewWater["浇灌记录"]
+
+    classDef core fill:#f6f2e8,stroke:#254336,stroke-width:2px,color:#254336;
+    classDef accent fill:#dde9d0,stroke:#254336,stroke-width:2px,color:#254336;
+    classDef action fill:#fcfbf7,stroke:#7fa36b,stroke-width:2px,color:#254336;
+
+    class app,tabs,habitat,labor,review core;
+    class habitatCards,habitatProgress,habitatArchive,habitatWater,laborMood,laborNote,laborGoal,laborTasks,reviewMood,reviewTasks,reviewWater accent;
+    class onceTask,dailyTask,weeklyTask,reward,drops,growth action;
+```
+
+如果 GitHub 对 Mermaid 渲染不稳定，也可以直接查看生成图：
+
+<p align="center">
+  <img src="./figures/sprout-app-flow.png" alt="Sprout 功能结构图" width="900" />
+</p>
+
+## 功能亮点
+
+- **植物化目标成长**：把长期目标转化为植物，用可见的阶段变化展示进度
+- **任务 × 水滴奖励机制**：完成任务获得水滴，再把水滴投入到目标成长中
+- **每日情绪记录**：记录当天心情，并附上一句简短备注
+- **一次性 / 每日 / 每周任务**：同时支持临时任务和循环习惯
+- **每日回顾时间线**：按天查看心情、完成任务和浇灌记录
+- **本地离线存储**：使用 Expo 文件系统在本地保存状态，无需联网也可使用
+
+## 体验设计
+
+Sprout 希望传达的是一种轻量、舒缓、不施压的使用体验：
+
+- 植物主题的视觉表达
+- 更适合“小步前进”的目标管理方式
+- 更关注过程感，而不是打卡焦虑
+- 更适合移动端日常记录与回顾
+
+## 技术栈
 
 - [Expo](https://expo.dev/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## Getting Started
+## 快速开始
 
-### 1. Clone the repository
+### 1. 克隆仓库
 
 ```bash
 git clone https://github.com/azhan12138/sprout-app-clean.git
 cd sprout-app-clean
 ```
 
-### 2. Install dependencies
+### 2. 安装依赖
 
 ```bash
 npm install
 ```
 
-### 3. Start the development server
+### 3. 启动开发服务
 
 ```bash
 npm run start
 ```
 
-If you are using PowerShell and `npm` is blocked by execution policy, use:
+如果你使用的是 PowerShell，且 `npm` 被执行策略拦截，可以改用：
 
 ```powershell
 npm.cmd run start
 ```
 
-### 4. Open on your phone
+### 4. 在手机上运行
 
-- Install **Expo Go** on your phone
-- Connect your phone and computer to the same Wi-Fi
-- Run the app with `npm run start`
-- Scan the QR code with Expo Go
+- 在手机上安装 **Expo Go**
+- 保证手机和电脑连接到同一个 Wi‑Fi
+- 执行 `npm run start`
+- 使用 Expo Go 扫描终端中的二维码
 
-## Scripts
+## 可用脚本
 
 ```bash
 npm run start
@@ -88,7 +167,7 @@ npm run ios
 npm run web
 ```
 
-## Project Structure
+## 项目结构
 
 ```text
 .
@@ -100,36 +179,40 @@ npm run web
 │  ├─ storage/
 │  ├─ utils/
 │  └─ types.ts
-└─ assets/
+├─ assets/
+│  └─ screenshots/
+└─ figures/
 ```
 
-## Current Functionality
+## 当前已实现内容
 
-The current version includes:
+当前版本已经包含：
 
-- habitat view for goals and plant progress
-- task view for mood logging and reward collection
-- review view for daily summaries
-- goal archiving, reordering, editing, and watering
-- task editing and recurring schedule support
-- keyboard avoidance and tap-blank-to-dismiss behavior on mobile input flows
+- 栖息地页面：展示目标植物与成长进度
+- 劳作页面：记录心情、添加任务、领取水滴
+- 回顾页面：按天查看成长记录
+- 目标的创建、编辑、排序、归档与浇灌
+- 任务的编辑、删除与循环周期支持
+- 移动端输入时的键盘避让与点击空白收起键盘
 
-## Roadmap
+## 后续可扩展方向
 
-Possible future improvements:
+未来可以继续完善的方向包括：
 
-- richer plant illustrations and stage transitions
-- onboarding for first-time users
-- export/shareable growth snapshots
-- cloud sync or account-based backup
-- stronger accessibility and larger-text support
+- 更丰富的植物阶段插画与动画反馈
+- 首次使用引导（onboarding）
+- 成长快照导出 / 分享
+- 云端同步或账号备份
+- 更完整的无障碍支持与大字体适配
 
-## Why This Project
+## 为什么做这个项目
 
-Sprout explores a softer way to think about self-management.
-It is not just a task tracker — it is an attempt to make progress feel visible, kind, and emotionally sustainable.
+Sprout 想探索一种更柔软的自我管理方式。
 
-## License
+它不只是一个任务清单工具，也是在尝试把“进步”变得更可见、更温和，也更愿意被长期坚持。
 
-This repository does not include a license yet.
-If you want others to freely reuse it, adding an MIT License is recommended.
+## 开源说明
+
+当前仓库还没有附带 License。
+
+如果你希望其他人可以更放心地下载、复用和二次开发，建议后续补充一个 **MIT License**。
