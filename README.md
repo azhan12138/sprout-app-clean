@@ -153,6 +153,15 @@ npm run ios
 npm run web
 ```
 
+## APK 下载
+
+如果你想直接在 Android 手机上体验 Sprout，可以优先前往 GitHub Releases 下载已发布的 APK：
+
+- [GitHub Releases](https://github.com/azhan12138/sprout-app-clean/releases)
+- [Expo Build 页面（备用）](https://expo.dev/accounts/azhan15858/projects/sprout-app-clean-v2/builds/c0633708-310c-4dba-8685-b49381a4b101)
+
+安装时如果系统提示“禁止安装未知来源应用”，按系统提示临时允许安装即可。
+
 ## 项目结构
 
 ```text
