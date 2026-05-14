@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "sprout",
+    "slug": "sprout-app-clean-v2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./封面.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./封面.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.azhan15858.sproutappcleanv2"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2d7ce391-e254-49f5-a81c-defee065d7fb"
+      }
+    }
+  }
+}
