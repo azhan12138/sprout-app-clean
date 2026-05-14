@@ -27,24 +27,10 @@ Sprout 是一个围绕“温和成长”设计的小型移动应用。
 
 ## 应用截图
 
-> 建议将截图放入 `assets/screenshots/` 目录，下列文件名可直接使用。
-
-### 栖息地
-
 <p align="center">
-  <img src="./assets/screenshots/habitat.jpg" alt="Sprout 栖息地页面" width="260" />
-</p>
-
-### 劳作
-
-<p align="center">
-  <img src="./assets/screenshots/labor.jpg" alt="Sprout 劳作页面" width="260" />
-</p>
-
-### 回顾
-
-<p align="center">
-  <img src="./assets/screenshots/review.jpg" alt="Sprout 回顾页面" width="260" />
+  <img src="./assets/screenshots/habitat.jpg" alt="Sprout 栖息地页面" width="30%" />
+  <img src="./assets/screenshots/labor.jpg" alt="Sprout 劳作页面" width="30%" />
+  <img src="./assets/screenshots/review.jpg" alt="Sprout 回顾页面" width="30%" />
 </p>
 
 ## 功能结构图
