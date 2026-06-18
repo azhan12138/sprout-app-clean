@@ -95,7 +95,9 @@ export const getPlantStage = (goal: Goal) => {
 
 export const getWaterDrops = (appState: AppState) => {
   const earnedWaterDrops = appState.tasks.reduce((sum, task) => sum + task.earnedDrops, 0);
-  const usedWaterDrops = appState.goals.reduce((sum, goal) => sum + goal.currentSteps, 0);
+  const usedWaterDrops = appState.waterEvents.length > 0
+    ? appState.waterEvents.reduce((sum, event) => sum + Math.max(event.amount, 0), 0)
+    : appState.goals.reduce((sum, goal) => sum + goal.currentSteps, 0);
 
   return Math.max(earnedWaterDrops - usedWaterDrops, 0);
 };
